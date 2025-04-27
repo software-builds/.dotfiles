@@ -1,0 +1,29 @@
+[window_title]
+command=~/.config/i3blocks/window_title
+interval=1
+color=#0096FF 
+
+# Volume
+[volume]
+command=echo "[Vol: $(amixer get Master | awk -F'[][]' '/Left:/ { print $2 " " $4 }')]"
+interval=1
+label=
+
+# CPU Usage
+[cpu_usage]
+command=echo "[CPU: $(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.0f%%", usage}')]"
+interval=1
+label=
+
+# Memory Usage
+[memory]
+command=echo "[Mem: $(free | awk '/Mem:/ { printf("%.0f%\n", $3/$2 * 100.0) }')]"
+interval=5
+label=
+
+# Date and Time
+[time]
+command=date '+[%m-%d-%Y %H:%M:%S]'
+interval=1
+label=
+

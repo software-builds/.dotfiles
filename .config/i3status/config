@@ -1,0 +1,61 @@
+# i3status config for ~/.config/i3status/config
+
+# Global Settings
+general {
+    output_format = "i3bar"
+    colors = true
+    interval = 1
+}
+
+# Display all 9 workspaces (1-9)
+order += "workspace 1"
+order += "workspace 2"
+order += "workspace 3"
+order += "workspace 4"
+order += "workspace 5"
+order += "workspace 6"
+order += "workspace 7"
+order += "workspace 8"
+order += "workspace 9"
+
+# Add this to the order list
+order += "custom/window_title"
+
+# Custom command to get the window title
+custom/window_title {
+    command = "~/.config/i3/i3status-wrapper.sh"
+    interval = 1
+    format = "%output"
+}
+
+# Volume
+order += "volume master"
+
+volume master {
+    format = "[Vol: %volume]"
+    format_muted = "[Vol: %volume - Muted]" 
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+# CPU Usage
+order += "cpu_usage"
+
+cpu_usage {
+    format = "[Cpu: %usage]"
+}
+
+# Memory Usage
+order += "memory"
+
+memory {
+     format = "[Mem: %percentage_used]"
+}
+
+# Date and Time
+order += "tztime local"
+tztime local {
+    format = "[%Y-%m-%d %H:%M:%S]"
+}
+

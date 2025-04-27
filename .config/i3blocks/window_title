@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xdotool getactivewindow getwindowpid | xargs ps -p | awk 'NR>1 {print $4 " | p:" $1}'
+
